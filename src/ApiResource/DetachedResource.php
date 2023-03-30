@@ -11,16 +11,17 @@ use App\Entity\DetachedEntity;
 use App\State\DetachedEntityProvider;
 
 #[ApiResource(
-    operations: [
+    operations  : [
         new Get(
             uriTemplate : '/detached/{id}',
+            uriVariables: ['id']
         ),
         new GetCollection(
-            uriTemplate : '/detached',
-        )
+            uriTemplate: '/detached',
+        ),
     ],
-    provider: DetachedEntityProvider::class,
-    stateOptions          : new Options(entityClass: DetachedEntity::class)
+    provider    : DetachedEntityProvider::class,
+    stateOptions: new Options(entityClass: DetachedEntity::class)
 )]
 class DetachedResource
 {
